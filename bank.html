@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="jquery"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="jquery.tag-editor.js"></script>
+<link rel="stylesheet" href="jquery.tag-editor.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> 
+<link href="css/jquery.feedback_me.css" rel="stylesheet" type="text/css">
+<script src="js/jquery.feedback_me.js"></script>
+<script src="src/jquery.daterange.js"></script> 
+<script type="text/javascript">
+		var nilai = 0;
+		var kata = "";
+		function fungsiku(){
+			nilai++;
+			kata = nilai.toString();
+			document.getElementById("pesansatu").innerHTML = "Counter 1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA " + kata;
+		}
+		function fungsilain(){
+			nilai++;
+			kata = nilai.toString();
+			document.getElementById("pesandua").innerHTML = "Counter 2&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA " + kata;
+		}
+		function fungsilagi(){
+			nilai++;
+			kata = nilai.toString();
+			document.getElementById("pesantiga").innerHTML = "Counter 3&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA " + kata;
+		}
+	</script>
+<script type="text/javascript">
+	function startTime() {
+    	var today=new Date(),
+        	curr_hour=today.getHours(),
+        	curr_min=today.getMinutes(),
+        	curr_sec=today.getSeconds();
+ 			curr_hour=checkTime(curr_hour);
+    		curr_min=checkTime(curr_min);
+    		curr_sec=checkTime(curr_sec);
+    		document.getElementById("waktu").innerHTML=curr_hour+":"+curr_min+":"+curr_sec;
+	}
+	function checkTime(i) {
+    	if (i<10) {
+        	i="0" + i;
+    	}
+    	return i;	
+	}
+setInterval(startTime, 500);
+</script>
+<script>
+$(function () {
+    $("#d").daterange({
+       dateFormat: "yy/mm/dd", //date format
+	rangeSeparator: " ### " // the string between first and last date
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+  //set up some basic options for the feedback_me plugin
+  fm_options = {
+    position: "left-bottom",
+    name_required: true,
+    message_placeholder: "Go ahead, type your feedback here...",
+    message_required: true,
+    show_asterisk_for_required: true,
+    feedback_url: "send_feedback_clean",
+    custom_params: {
+      csrf: "my_secret_token",
+      user_id: "john_doe",
+      feedback_type: "clean"
+    }
+  };
+  //init feedback_me plugin
+  fm.init(fm_options);
+});
+</script>
+<script>
+// assign tag editor to textarea
+$('textarea').tagEditor();
+
+// with jQuery UI autocomplete
+$('textarea').tagEditor({ autocomplete: { 'source': '/url/', minLength: 3 } });
+</script>
+<head>
+	<link rel="stylesheet" type="text/css" href="dist/DateTimePicker.min.css" />
+	<link rel="stylesheet" type="text/css" href="bank.css">
+	<title>BNI</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="bungkus">
+		<div id="vid"><video width="900px" height="550px" controls loop="loop" autoplay><source src="movie.mp4" type="video/mp4"></video></div>
+		<div id="lambang"><img src="lambangyo.jpeg"></div>
+		<div id="waktu"></div>
+		<div class="slides">
+			<img src="bann.jpg" width="170px" height="550px">
+		</div>	
+		<div id="angka">
+		<button class="tombol" id="tombolsatu" onclick="fungsiku();">+ Counter 1</button>
+		<button class="tombol" id="tomboldua" onclick="fungsilain();">+ Counter 2</button>
+		<button class="tombol" id="tomboltiga" onclick="fungsilagi();">+ Counter 3</button>
+		</div>
+		<div id="lain"><br><p id="pesansatu"> Counter 1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA 0</p><hr><br><p id="pesandua"> Counter 2&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA 0</p><hr><br><p id="pesantiga"> Counter 3&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA 0</p><hr></div>
+	</div>
+	<div id="bawah">
+		<div style="background-color : rgb(18,45,98);"><img src="flag1.png" width="70px" height="70px"/></div>
+		<div style="background-color : white;"><h3>BELI</h3><br><h2>6.700</h2></div>
+		<div style="background-color : rgb(18,45,98);"><h3>JUAL</h3><br><h2>6.625</h2></div>
+		<div style="background-color : rgb(18,45,98);"><img src="flag2.png" width="100px" height="70px"></div>
+		<div style="background-color : white;"><h3>BELI</h3><br><h2>14.100</h2></div>
+		<div style="background-color : rgb(18,45,98);"><h3>JUAL</h3><br><h2>13.259</h2></div>
+		<div style="background-color : rgb(18,45,98);"><img src="flag3.png" width="70px" height="70px"></div>
+		<div style="background-color : white;"><h3>BELI</h3><br><h2>8.100</h2></div>
+		<div style="background-color : rgb(18,45,98);" id="last"><h3>JUAL</h3><br><h2>8.100</h2></div>
+	</div>
+	<input id="d" class="demo" placeholder="Masukkan Tanggal">
+	<textarea id="demo" placeholder="Masukkan Pesan"></textarea>
+	<div id="jalan"><marquee>SELAMAT MENUNGGU DATANGNYA BULAN PUASA!</marquee></div>
+</body>
+</html>
